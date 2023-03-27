@@ -1,2 +1,2 @@
-# soterocars
+# SoteroCars
 Un proyecto de software como  recurso de aprendizaje
