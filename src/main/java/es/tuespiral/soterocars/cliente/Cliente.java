@@ -1,4 +1,4 @@
-package es.tuespiral.soterocars.empleado;
+package es.tuespiral.soterocars.cliente;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,15 +14,14 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import es.tuespiral.soterocars.empresa.Empresa;
 import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.usuario.Usuario;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name="EMPLEADOS")
-public class Empleado {
+@Table(name="CLIENTES")
+public class Cliente {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -42,19 +41,12 @@ public class Empleado {
 	
 	private String domicilio;
 	
-	@Column(nullable=false)
-	private BigDecimal salario;
-	
 	private String email;
 	
 	@Column(nullable=false)
-	private LocalDate fechaContratacion;
+	private LocalDate fechaAlta;
 	
-	private LocalDate fechaCese;
-	
-	@ManyToOne
-	@JsonIgnore	
-	private Sede trabajaEnSede;
+	private LocalDate fechaBaja;
 	
 	@OneToOne
 	private Usuario usuario;

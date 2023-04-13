@@ -1,7 +1,9 @@
-package es.tuespiral.soterocars.aaplantillas.user;
+package es.tuespiral.soterocars.usuario;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {}
+public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
+
+}

@@ -16,7 +16,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import es.tuespiral.soterocars.aaplantillas.order.Order;
-import es.tuespiral.soterocars.aaplantillas.user.User;
 import lombok.Data;
 import lombok.NonNull;
 
@@ -37,9 +36,6 @@ public class Customer {
 	
 	@Column(name="BIRTHDATE", nullable=true)
 	private LocalDate birthDate;
-	
-	@OneToOne(mappedBy = "customer")
-	private User user;
 	
 	@OneToMany(mappedBy="customer")
 	@JsonManagedReference
@@ -100,13 +96,6 @@ public class Customer {
 		this.birthDate = birthDate;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	public Set<Order> getOrders() {
 		return orders;
