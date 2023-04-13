@@ -1,0 +1,4 @@
+insert into empresa (cif, denominacion_social, domicilio, fecha_constitucion, direccion_web, telefono, email) values ('S4111001F', 'SoteroCars', 'C/ Santo Domingo de Guzmán, S/N', '2023-04-11', 'https://iessoterohernandez.es/', '955622674', '');
+insert into sedes (nombre, domicilio, fecha_apertura, direccion_web, telefono, email, horario, empresa_id) values ('San Juan', 'C/ Santo Domingo de Guzmán, S/N', '2023-04-11', 'https://iessoterohernandez.es/', '955622674', '', 'L-V: 8:00-19:00 y S-D: 8:00-15:00', 1);
+insert into empleados (dni, nombre, apellido1, apellido2, telefono, domicilio, salario, email, fecha_contratacion, fecha_cese, trabaja_en_sede_id) values ('53523597K', 'Juan', 'Gallardo', 'Parra', '654987123', '', '1200', '', '2023-04-11', null, 1);
+insert into categorias_vehiculo (nombre, descripcion) values ('Económico', 'Vehículos de gama baja-media');
