@@ -2,6 +2,7 @@ package es.tuespiral.soterocars.cliente;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import es.tuespiral.soterocars.alquiler.Alquiler;
+import es.tuespiral.soterocars.reserva.Reserva;
 import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.usuario.Usuario;
 import lombok.Data;
@@ -50,4 +54,10 @@ public class Cliente {
 	
 	@OneToOne
 	private Usuario usuario;
+	
+	@OneToMany(mappedBy="cliente")
+	private List<Reserva> reservas;
+	
+	@OneToMany(mappedBy="cliente")
+	private List<Alquiler> alquileres;
 }

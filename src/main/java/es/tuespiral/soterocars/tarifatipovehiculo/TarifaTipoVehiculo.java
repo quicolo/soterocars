@@ -1,4 +1,4 @@
-package es.tuespiral.soterocars.tarifacategoriavehiculo;
+package es.tuespiral.soterocars.tarifatipovehiculo;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,13 +13,13 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import es.tuespiral.soterocars.categoriavehiculo.CategoriaVehiculo;
+import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name="TARIFAS_CATEGORIAS_VEHICULO")
-public class TarifaCategoriaVehiculo {
+@Table(name="TARIFAS_TIPO_VEHICULO")
+public class TarifaTipoVehiculo {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -45,5 +45,5 @@ public class TarifaCategoriaVehiculo {
 	
 	@ManyToOne
 	@JsonIgnore
-	private CategoriaVehiculo categoria; 
+	private TipoVehiculo tipoVehiculo; 
 }

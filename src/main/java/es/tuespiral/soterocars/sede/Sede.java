@@ -14,8 +14,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import es.tuespiral.soterocars.alquiler.Alquiler;
 import es.tuespiral.soterocars.empleado.Empleado;
 import es.tuespiral.soterocars.empresa.Empresa;
+import es.tuespiral.soterocars.reserva.Reserva;
 import lombok.Data;
 
 @Entity
@@ -48,5 +50,15 @@ public class Sede {
 	@JsonIgnore	
 	private Empresa empresa;
 	
+	@OneToMany(mappedBy="sedeRecogida")
+	private List<Reserva> reservasConRecogida;
 	
+	@OneToMany(mappedBy="sedeDevolucion")
+	private List<Reserva> reservasConDevolucion;
+	
+	@OneToMany(mappedBy="sedeRecogida")
+	private List<Alquiler> alquileresConRecogida;
+	
+	@OneToMany(mappedBy="sedeDevolucion")
+	private List<Alquiler> alquileresConDevolucion;
 }

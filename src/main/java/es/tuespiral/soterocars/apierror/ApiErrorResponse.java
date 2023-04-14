@@ -1,4 +1,4 @@
-package es.tuespiral.soterocars.aaplantillas.apierror;
+package es.tuespiral.soterocars.apierror;
 
 public class ApiErrorResponse {
 

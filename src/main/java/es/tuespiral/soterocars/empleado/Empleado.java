@@ -2,6 +2,7 @@ package es.tuespiral.soterocars.empleado;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import es.tuespiral.soterocars.alquiler.Alquiler;
 import es.tuespiral.soterocars.empresa.Empresa;
 import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.usuario.Usuario;
@@ -58,4 +61,7 @@ public class Empleado {
 	
 	@OneToOne
 	private Usuario usuario;
+	
+	@OneToMany(mappedBy="empleado")
+	private List<Alquiler> alquileres;
 }

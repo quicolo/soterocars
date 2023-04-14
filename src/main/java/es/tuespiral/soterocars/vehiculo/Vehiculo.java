@@ -11,8 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import es.tuespiral.soterocars.alquiler.Alquiler;
 import es.tuespiral.soterocars.caracteristicavehiculo.CaracteristicaVehiculo;
-import es.tuespiral.soterocars.categoriavehiculo.CategoriaVehiculo;
+import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
 import lombok.Data;
 
 @Entity
@@ -40,6 +41,9 @@ public class Vehiculo {
 	@OneToMany(mappedBy="vehiculo")
 	private List<CaracteristicaVehiculo> caracteristicas;
 	
+	@OneToMany(mappedBy="vehiculo")
+	private List<Alquiler> alquileres;
+	
 	@ManyToOne
-	private CategoriaVehiculo categoria;
+	private TipoVehiculo tipoVehiculo;
 }

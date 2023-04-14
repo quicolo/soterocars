@@ -1,9 +1,9 @@
-package es.tuespiral.soterocars.aaplantillas.order;
+package es.tuespiral.soterocars.reserva;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderRepository extends CrudRepository<Order, Long> {
+public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 
 }

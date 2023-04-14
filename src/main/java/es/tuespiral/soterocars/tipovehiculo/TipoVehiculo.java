@@ -1,4 +1,4 @@
-package es.tuespiral.soterocars.categoriavehiculo;
+package es.tuespiral.soterocars.tipovehiculo;
 
 import javax.persistence.Column;
 import java.util.List;
@@ -9,14 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import es.tuespiral.soterocars.tarifacategoriavehiculo.TarifaCategoriaVehiculo;
+import es.tuespiral.soterocars.reserva.Reserva;
+import es.tuespiral.soterocars.tarifatipovehiculo.TarifaTipoVehiculo;
 import es.tuespiral.soterocars.vehiculo.Vehiculo;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name="CATEGORIAS_VEHICULO")
-public class CategoriaVehiculo {
+@Table(name="TIPOS_VEHICULO")
+public class TipoVehiculo {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -28,9 +29,12 @@ public class CategoriaVehiculo {
 	
 	private String nombreFicheroImagen;
 	
-	@OneToMany(mappedBy="categoria")
-	private List<TarifaCategoriaVehiculo> tarifas;
+	@OneToMany(mappedBy="tipoVehiculo")
+	private List<TarifaTipoVehiculo> tarifas;
 	
-	@OneToMany(mappedBy="categoria")
+	@OneToMany(mappedBy="tipoVehiculo")
 	private List<Vehiculo> vehiculos;
+	
+	@OneToMany(mappedBy="tipoVehiculo")
+	private List<Reserva> reservas;
 }
