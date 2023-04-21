@@ -2,6 +2,8 @@ package es.tuespiral.soterocars.vehiculo;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +15,8 @@ import javax.persistence.Table;
 
 import es.tuespiral.soterocars.alquiler.Alquiler;
 import es.tuespiral.soterocars.caracteristicavehiculo.CaracteristicaVehiculo;
+import es.tuespiral.soterocars.reserva.Reserva;
+import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
 import lombok.Data;
 
@@ -38,12 +42,23 @@ public class Vehiculo {
 	
 	private LocalDate fechaBaja;
 	
-	@OneToMany(mappedBy="vehiculo")
+	@OneToMany(mappedBy="vehiculo", cascade=CascadeType.ALL)
 	private List<CaracteristicaVehiculo> caracteristicas;
+	
+	@OneToMany(mappedBy="vehiculo")
+	private List<Reserva> reservas;
 	
 	@OneToMany(mappedBy="vehiculo")
 	private List<Alquiler> alquileres;
 	
 	@ManyToOne
 	private TipoVehiculo tipoVehiculo;
+	
+	@ManyToOne
+	private Sede sedePropietaria;
+	
+	@ManyToOne
+	private Sede sedeUbicacionActual;
+	
+	
 }

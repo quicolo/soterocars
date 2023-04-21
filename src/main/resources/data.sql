@@ -27,7 +27,7 @@ insert into caracteristicas_vehiculo (vehiculo_id, tipo_caracteristica_id, valor
 insert into tipos_estado_reserva (nombre, descripcion) values ('Activa', 'Reserva activa aún no confirmada con un alquiler');
 insert into tipos_estado_reserva (nombre, descripcion) values ('Anulada', 'Reserva anulada por el cliente');
 insert into tipos_estado_reserva (nombre, descripcion) values ('Confirmada', 'Reserva confirmada tras firmarse el contrato de alquiler en una sede');
-insert into reservas (tipo_vehiculo_id, cliente_id, estado_id, sede_recogida_id, sede_devolucion_id, fecha_hora_recogida, fecha_hora_devolucion, fecha_hora_creacion, fecha_hora_modificacion) values (1, 1, 1, 1, 1, '2023-04-14 09:00:00', '2023-04-15 09:00:00', now(), null);
+insert into reservas (vehiculo_id, cliente_id, estado_id, sede_recogida_id, sede_devolucion_id, fecha_hora_recogida, fecha_hora_devolucion, fecha_hora_creacion, fecha_hora_modificacion) values (1, 1, 1, 1, 1, '2023-04-14 09:00:00', '2023-04-15 09:00:00', now(), null);
 
 
 insert into tipos_estado_alquiler (nombre, descripcion) values ('En curso', 'Contrato firmado y vehículo entregado al cliente');

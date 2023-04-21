@@ -2,6 +2,7 @@ package es.tuespiral.soterocars.tipoestadoalquiler;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,12 +21,12 @@ public class TipoEstadoAlquiler {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String nombre;
 	
 	private String descripcion;
 	
-	@OneToMany(mappedBy="estado")
+	@OneToMany(mappedBy="estado", cascade=CascadeType.ALL)
 	private List<EstadoAlquiler> alquileres;
 	
 }

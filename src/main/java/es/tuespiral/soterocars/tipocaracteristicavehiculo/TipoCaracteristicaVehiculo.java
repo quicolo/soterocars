@@ -2,6 +2,7 @@ package es.tuespiral.soterocars.tipocaracteristicavehiculo;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,9 +26,9 @@ public class TipoCaracteristicaVehiculo {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String nombre;
 	
-	@OneToMany(mappedBy="tipoCaracteristica")
+	@OneToMany(mappedBy="tipoCaracteristica", cascade=CascadeType.ALL)
 	private List<CaracteristicaVehiculo> vehiculos;
 }

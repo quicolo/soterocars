@@ -17,6 +17,7 @@ import es.tuespiral.soterocars.empleado.Empleado;
 import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.tipoestadoreserva.TipoEstadoReserva;
 import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
+import es.tuespiral.soterocars.vehiculo.Vehiculo;
 import lombok.Data;
 
 @Entity
@@ -34,7 +35,7 @@ public class Reserva {
 	private TipoEstadoReserva estado;
 	
 	@ManyToOne
-	private TipoVehiculo tipoVehiculo;
+	private Vehiculo vehiculo;
 	
 	@ManyToOne
 	private Sede sedeRecogida;

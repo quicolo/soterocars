@@ -2,6 +2,7 @@ package es.tuespiral.soterocars.alquiler;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Alquiler {
 	@ManyToOne
 	private Empleado empleado;
 	
-	@OneToMany(mappedBy="alquiler")
+	@OneToMany(mappedBy="alquiler", cascade=CascadeType.ALL)
 	private List<EstadoAlquiler> estados;
 	
 	@OneToOne

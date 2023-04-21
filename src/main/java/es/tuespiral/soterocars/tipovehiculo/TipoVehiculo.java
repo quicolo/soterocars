@@ -22,7 +22,7 @@ public class TipoVehiculo {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String nombre;
 	
 	private String descripcion;
@@ -33,8 +33,5 @@ public class TipoVehiculo {
 	private List<TarifaTipoVehiculo> tarifas;
 	
 	@OneToMany(mappedBy="tipoVehiculo")
-	private List<Vehiculo> vehiculos;
-	
-	@OneToMany(mappedBy="tipoVehiculo")
-	private List<Reserva> reservas;
+	private List<Vehiculo> vehiculos;	
 }

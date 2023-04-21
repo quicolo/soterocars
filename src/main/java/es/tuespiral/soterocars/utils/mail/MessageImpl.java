@@ -9,15 +9,6 @@ public class MessageImpl implements Message {
 	@NonNull
 	private String fromAddress, toAddress, header, content;
 
-	public MessageImpl(@NonNull String fromAddress, @NonNull String toAddress, @NonNull String header,
-			@NonNull String content) {
-		super();
-		this.fromAddress = fromAddress;
-		this.toAddress = toAddress;
-		this.header = header;
-		this.content = content;
-	}
-
 	@Override
 	public String getFromAddress() {
 		return fromAddress;

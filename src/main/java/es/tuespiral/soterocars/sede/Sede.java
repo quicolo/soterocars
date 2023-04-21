@@ -18,7 +18,9 @@ import es.tuespiral.soterocars.alquiler.Alquiler;
 import es.tuespiral.soterocars.empleado.Empleado;
 import es.tuespiral.soterocars.empresa.Empresa;
 import es.tuespiral.soterocars.reserva.Reserva;
+import es.tuespiral.soterocars.vehiculo.Vehiculo;
 import lombok.Data;
+import lombok.NonNull;
 
 @Entity
 @Data
@@ -28,7 +30,7 @@ public class Sede {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String nombre;
 	
 	private String domicilio;
@@ -43,12 +45,12 @@ public class Sede {
 	
 	private String email;
 	
-	@OneToMany(mappedBy="trabajaEnSede")
-	private List<Empleado> empleados;
-	
 	@ManyToOne
 	@JsonIgnore	
 	private Empresa empresa;
+	
+	@OneToMany(mappedBy="trabajaEnSede")
+	private List<Empleado> empleados;
 	
 	@OneToMany(mappedBy="sedeRecogida")
 	private List<Reserva> reservasConRecogida;
@@ -61,4 +63,26 @@ public class Sede {
 	
 	@OneToMany(mappedBy="sedeDevolucion")
 	private List<Alquiler> alquileresConDevolucion;
+	
+	@OneToMany(mappedBy="sedePropietaria")
+	private List<Vehiculo> vehiculosEnPropiedad;
+	
+	@OneToMany(mappedBy="sedeUbicacionActual")
+	private List<Vehiculo> vehiculosUbicadosActual;
+	
+	public Sede() {}
+	
+	public Sede(@NonNull Long id, @NonNull String nombre, String domicilio, LocalDate fechaApertura, String horario, String direccionWeb,
+			String telefono, String email, @NonNull Empresa empresa) {
+
+		this.id = id;
+		this.nombre = nombre;
+		this.domicilio = domicilio;
+		this.fechaApertura = fechaApertura;
+		this.horario = horario;
+		this.direccionWeb = direccionWeb;
+		this.telefono = telefono;
+		this.email = email;
+		this.empresa = empresa;
+	}
 }
