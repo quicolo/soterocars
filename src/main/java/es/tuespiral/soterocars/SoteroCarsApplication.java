@@ -1,5 +1,6 @@
 package es.tuespiral.soterocars;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,7 +14,6 @@ import es.tuespiral.soterocars.sede.SedeService;
 public class SoteroCarsApplication {
 	public static void main(String[] args) throws SedeException {
 		ApplicationContext context =  SpringApplication.run(SoteroCarsApplication.class, args);
-		
 	}
 
 }

@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.tuespiral.soterocars.alquiler.Alquiler;
 import es.tuespiral.soterocars.caracteristicavehiculo.CaracteristicaVehiculo;
 import es.tuespiral.soterocars.reserva.Reserva;
@@ -43,22 +44,38 @@ public class Vehiculo {
 	private LocalDate fechaBaja;
 	
 	@OneToMany(mappedBy="vehiculo", cascade=CascadeType.ALL)
+	@JsonIgnore
 	private List<CaracteristicaVehiculo> caracteristicas;
 	
 	@OneToMany(mappedBy="vehiculo")
+	@JsonIgnore
 	private List<Reserva> reservas;
 	
 	@OneToMany(mappedBy="vehiculo")
+	@JsonIgnore
 	private List<Alquiler> alquileres;
 	
 	@ManyToOne
+	@JsonIgnore
 	private TipoVehiculo tipoVehiculo;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Sede sedePropietaria;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Sede sedeUbicacionActual;
-	
-	
+
+	@Override
+	public String toString() {
+		return "Vehiculo{" +
+				"id=" + id +
+				", matricula='" + matricula + '\'' +
+				", marca='" + marca + '\'' +
+				", modelo='" + modelo + '\'' +
+				", fechaAlta=" + fechaAlta +
+				", fechaBaja=" + fechaBaja +
+				'}';
+	}
 }

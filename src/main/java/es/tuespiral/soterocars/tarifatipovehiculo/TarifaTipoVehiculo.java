@@ -45,5 +45,19 @@ public class TarifaTipoVehiculo {
 	
 	@ManyToOne
 	@JsonIgnore
-	private TipoVehiculo tipoVehiculo; 
+	private TipoVehiculo tipoVehiculo;
+
+	@Override
+	public String toString() {
+		return "TarifaTipoVehiculo{" +
+				"id=" + id +
+				", nombre='" + nombre + '\'' +
+				", descripcion='" + descripcion + '\'' +
+				", fechaInicioAplicacion=" + fechaInicioAplicacion +
+				", fechaFinAplicacion=" + fechaFinAplicacion +
+				", precioPorDia=" + precioPorDia +
+				", precioPorHora=" + precioPorHora +
+				", limiteKilometraje=" + limiteKilometraje +
+				'}';
+	}
 }

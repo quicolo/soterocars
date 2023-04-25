@@ -15,7 +15,7 @@ public class ResultadoBusqueda {
 	private final TipoVehiculo tipo;
 	private final Vehiculo vehiculo;
 	private final LocalDateTime fechaHoraRecogida;
-	private final LocalDateTime fechaHoraDevolución;
+	private final LocalDateTime fechaHoraDevolucion;
 	private final BigDecimal precio;
 	private final Sede sede;
 }

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.tuespiral.soterocars.reserva.Reserva;
 import es.tuespiral.soterocars.tarifatipovehiculo.TarifaTipoVehiculo;
 import es.tuespiral.soterocars.vehiculo.Vehiculo;
@@ -30,8 +31,10 @@ public class TipoVehiculo {
 	private String nombreFicheroImagen;
 	
 	@OneToMany(mappedBy="tipoVehiculo")
+	@JsonIgnore
 	private List<TarifaTipoVehiculo> tarifas;
 	
 	@OneToMany(mappedBy="tipoVehiculo")
+	@JsonIgnore
 	private List<Vehiculo> vehiculos;	
 }

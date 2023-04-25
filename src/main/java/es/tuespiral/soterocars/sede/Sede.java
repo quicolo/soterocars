@@ -20,10 +20,12 @@ import es.tuespiral.soterocars.empresa.Empresa;
 import es.tuespiral.soterocars.reserva.Reserva;
 import es.tuespiral.soterocars.vehiculo.Vehiculo;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Entity
 @Data
+@NoArgsConstructor
 @Table(name="SEDES")
 public class Sede {
 	@Id
@@ -50,28 +52,33 @@ public class Sede {
 	private Empresa empresa;
 	
 	@OneToMany(mappedBy="trabajaEnSede")
+	@JsonIgnore
 	private List<Empleado> empleados;
 	
 	@OneToMany(mappedBy="sedeRecogida")
+	@JsonIgnore
 	private List<Reserva> reservasConRecogida;
 	
 	@OneToMany(mappedBy="sedeDevolucion")
+	@JsonIgnore
 	private List<Reserva> reservasConDevolucion;
 	
 	@OneToMany(mappedBy="sedeRecogida")
+	@JsonIgnore
 	private List<Alquiler> alquileresConRecogida;
 	
 	@OneToMany(mappedBy="sedeDevolucion")
+	@JsonIgnore
 	private List<Alquiler> alquileresConDevolucion;
 	
 	@OneToMany(mappedBy="sedePropietaria")
+	@JsonIgnore
 	private List<Vehiculo> vehiculosEnPropiedad;
 	
 	@OneToMany(mappedBy="sedeUbicacionActual")
+	@JsonIgnore
 	private List<Vehiculo> vehiculosUbicadosActual;
-	
-	public Sede() {}
-	
+
 	public Sede(@NonNull Long id, @NonNull String nombre, String domicilio, LocalDate fechaApertura, String horario, String direccionWeb,
 			String telefono, String email, @NonNull Empresa empresa) {
 
@@ -84,5 +91,19 @@ public class Sede {
 		this.telefono = telefono;
 		this.email = email;
 		this.empresa = empresa;
+	}
+
+	@Override
+	public String toString() {
+		return "Sede{" +
+				"id=" + id +
+				", nombre='" + nombre + '\'' +
+				", domicilio='" + domicilio + '\'' +
+				", fechaApertura=" + fechaApertura +
+				", horario='" + horario + '\'' +
+				", direccionWeb='" + direccionWeb + '\'' +
+				", telefono='" + telefono + '\'' +
+				", email='" + email + '\'' +
+				'}';
 	}
 }
