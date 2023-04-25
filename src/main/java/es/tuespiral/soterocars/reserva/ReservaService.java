@@ -36,18 +36,18 @@ public class ReservaService {
 	@Autowired
 	private TarifaTipoVehiculoRepository tarifaRepo;
 
-	public List<ResultadoBusqueda> buscarVehiculosDisponibles(@NonNull String nombreTipoVehiculo,
-			@NonNull String nombreSede, @NonNull LocalDateTime fechaHoraRecogida,
+	public List<ResultadoBusqueda> buscarVehiculosDisponibles(@NonNull Long idTipoVehiculo,
+			@NonNull Long idSede, @NonNull LocalDateTime fechaHoraRecogida,
 			@NonNull LocalDateTime fechaHoraDevolucion) throws ReservaException {
 
-		TipoVehiculo tipoVehiculo = tipoVehiculoRepo.findByNombre(nombreTipoVehiculo)
-				.orElseThrow(() -> new ReservaException("No existe el tipo de vehículo " + nombreTipoVehiculo));
+		TipoVehiculo tipoVehiculo = tipoVehiculoRepo.findById(idTipoVehiculo)
+				.orElseThrow(() -> new ReservaException("No existe el tipo de vehículo con ID " + idTipoVehiculo));
 
-		Sede sede = sedeRepo.findByNombre(nombreSede)
-				.orElseThrow(() -> new ReservaException("No existe la sede con nombre " + nombreSede));
+		Sede sede = sedeRepo.findById(idSede)
+				.orElseThrow(() -> new ReservaException("No existe la sede con ID " + idSede));
 
 		TarifaTipoVehiculo tarifa = tarifaRepo.findByTipoVehiculo(tipoVehiculo)
-				.orElseThrow(() -> new ReservaException("No existe una tarifa para vehículos tipo " + nombreTipoVehiculo));
+				.orElseThrow(() -> new ReservaException("No existe una tarifa para los tipos de vehículos con ID " + idTipoVehiculo));
 		
 		if (fechaHoraRecogida.isAfter(fechaHoraDevolucion) || fechaHoraRecogida.isEqual(fechaHoraDevolucion)) {
 			throw new ReservaException("La fecha de devolución debe ser posterior a la de recogida");
