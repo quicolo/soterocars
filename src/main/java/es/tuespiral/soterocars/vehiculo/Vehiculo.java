@@ -19,10 +19,14 @@ import es.tuespiral.soterocars.caracteristicavehiculo.CaracteristicaVehiculo;
 import es.tuespiral.soterocars.reserva.Reserva;
 import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="VEHICULOS")
 public class Vehiculo {
 	@Id
