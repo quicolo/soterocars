@@ -12,10 +12,16 @@ import es.tuespiral.soterocars.usuario.Usuario;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="PERFILES_USUARIO")
 public class PerfilUsuario {
 	@Id

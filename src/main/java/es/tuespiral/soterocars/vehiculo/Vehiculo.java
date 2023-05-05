@@ -20,11 +20,13 @@ import es.tuespiral.soterocars.reserva.Reserva;
 import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="VEHICULOS")

@@ -18,10 +18,16 @@ import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.tipoestadoreserva.TipoEstadoReserva;
 import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
 import es.tuespiral.soterocars.vehiculo.Vehiculo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="RESERVAS")
 public class Reserva {
 	@Id

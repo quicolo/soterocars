@@ -16,10 +16,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import es.tuespiral.soterocars.caracteristicavehiculo.CaracteristicaVehiculo;
 import es.tuespiral.soterocars.vehiculo.Vehiculo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="TIPOS_CARACTERISTICA_VEHICULO")
 public class TipoCaracteristicaVehiculo {
 	@Id

@@ -20,10 +20,16 @@ import es.tuespiral.soterocars.alquiler.Alquiler;
 import es.tuespiral.soterocars.empresa.Empresa;
 import es.tuespiral.soterocars.sede.Sede;
 import es.tuespiral.soterocars.usuario.Usuario;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="EMPLEADOS")
 public class Empleado {
 	@Id

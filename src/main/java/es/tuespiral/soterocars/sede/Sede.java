@@ -19,12 +19,12 @@ import es.tuespiral.soterocars.empleado.Empleado;
 import es.tuespiral.soterocars.empresa.Empresa;
 import es.tuespiral.soterocars.reserva.Reserva;
 import es.tuespiral.soterocars.vehiculo.Vehiculo;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Table(name="SEDES")
 public class Sede {

@@ -23,6 +23,7 @@ class ReservaHelperTest {
         // Arrange
         LocalDateTime inicio = LocalDateTime.of(2023, 2, 1, 10, 0);
         LocalDateTime fin = LocalDateTime.of(2023, 2, 2, 10, 0);
+        int minutosLimpiezaVehiculo = 120;
 
         Reserva r1 = new Reserva();
         r1.setFechaHoraRecogida(LocalDateTime.of(2023, 1, 31, 9, 0));
@@ -35,7 +36,7 @@ class ReservaHelperTest {
         v.setAlquileres(Collections.EMPTY_LIST);
 
         // Act
-        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin);
+        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin, minutosLimpiezaVehiculo);
 
         // Assert
         boolean expected = false;
@@ -47,6 +48,7 @@ class ReservaHelperTest {
         // Arrange
         LocalDateTime inicio = LocalDateTime.of(2023, 2, 1, 10, 0);
         LocalDateTime fin = LocalDateTime.of(2023, 2, 2, 10, 0);
+        int minutosLimpiezaVehiculo = 120;
 
         Reserva r1 = new Reserva();
         r1.setFechaHoraRecogida(LocalDateTime.of(2023, 1, 31, 9, 0));
@@ -59,7 +61,7 @@ class ReservaHelperTest {
         v.setAlquileres(Collections.EMPTY_LIST);
 
         // Act
-        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin);
+        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin, minutosLimpiezaVehiculo);
 
         // Assert
         boolean expected = false;
@@ -71,6 +73,7 @@ class ReservaHelperTest {
         // Arrange
         LocalDateTime inicio = LocalDateTime.of(2023, 2, 1, 10, 0);
         LocalDateTime fin = LocalDateTime.of(2023, 2, 2, 10, 0);
+        int minutosLimpiezaVehiculo = 120;
 
         Reserva r1 = new Reserva();
         r1.setFechaHoraRecogida(LocalDateTime.of(2023, 1, 31, 9, 0));
@@ -83,7 +86,7 @@ class ReservaHelperTest {
         v.setAlquileres(Collections.EMPTY_LIST);
 
         // Act
-        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin);
+        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin, minutosLimpiezaVehiculo);
 
         // Assert
         boolean expected = false;
@@ -96,6 +99,7 @@ class ReservaHelperTest {
         // Arrange
         LocalDateTime inicio = LocalDateTime.of(2023, 2, 1, 10, 0);
         LocalDateTime fin = LocalDateTime.of(2023, 2, 2, 10, 0);
+        int minutosLimpiezaVehiculo = 120;
 
         Reserva r1 = new Reserva();
         r1.setFechaHoraRecogida(LocalDateTime.of(2023, 1, 31, 9, 0));
@@ -108,7 +112,7 @@ class ReservaHelperTest {
         v.setAlquileres(Collections.EMPTY_LIST);
 
         // Act
-        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin);
+        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin, minutosLimpiezaVehiculo);
 
         // Assert
         boolean expected = false;
@@ -120,6 +124,7 @@ class ReservaHelperTest {
         // Arrange
         LocalDateTime inicio = LocalDateTime.of(2023, 2, 1, 10, 0);
         LocalDateTime fin = LocalDateTime.of(2023, 2, 2, 10, 0);
+        int minutosLimpiezaVehiculo = 120;
 
         Reserva r1 = new Reserva();
         r1.setFechaHoraRecogida(LocalDateTime.of(2023, 2, 20, 9, 0));
@@ -132,7 +137,7 @@ class ReservaHelperTest {
         v.setAlquileres(Collections.EMPTY_LIST);
 
         // Act
-        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin);
+        boolean actual = ReservaHelper.estaDisponible(v, inicio, fin, minutosLimpiezaVehiculo);
 
         // Assert
         boolean expected = true;

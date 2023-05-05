@@ -14,10 +14,16 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="TARIFAS_TIPO_VEHICULO")
 public class TarifaTipoVehiculo {
 	@Id
@@ -28,7 +34,7 @@ public class TarifaTipoVehiculo {
 	private String nombre;
 	
 	private String descripcion;
-	
+
 	@Column(nullable=false)
 	private LocalDate fechaInicioAplicacion;
 	

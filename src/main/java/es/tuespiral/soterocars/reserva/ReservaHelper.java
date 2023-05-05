@@ -9,14 +9,9 @@ import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
 import es.tuespiral.soterocars.vehiculo.Vehiculo;
 
 public class ReservaHelper {
-	// Aplicamos una holgura a las fechas de inicio y devolución
-	// para que de tiempo a limpiar el vehículo antes de darlo a
-	// otro cliente
-	public static long HORAS_HOLGURA = 2;
-
-	public static boolean estaDisponible(Vehiculo v, LocalDateTime inicioParam, LocalDateTime finParam) {
-		LocalDateTime inicio = inicioParam.minus(HORAS_HOLGURA, ChronoUnit.HOURS);
-		LocalDateTime fin = finParam.plus(HORAS_HOLGURA, ChronoUnit.HOURS);
+	public static boolean estaDisponible(Vehiculo v, LocalDateTime inicioParam, LocalDateTime finParam, int minutosHolguraLimpieza) {
+		LocalDateTime inicio = inicioParam.minus(minutosHolguraLimpieza, ChronoUnit.MINUTES);
+		LocalDateTime fin = finParam.plus(minutosHolguraLimpieza, ChronoUnit.MINUTES);
 
 		boolean libreDeReservas = v.getReservas().stream().allMatch(
 				res -> res.getFechaHoraDevolucion().isBefore(inicio) || res.getFechaHoraRecogida().isAfter(fin));
