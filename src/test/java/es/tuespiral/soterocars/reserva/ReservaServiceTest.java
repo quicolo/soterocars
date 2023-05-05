@@ -86,7 +86,7 @@ class ReservaServiceTest {
                 .build();
         Mockito.when(tarifaRepo.findByTipoVehiculo(tipoVehiculo)).thenReturn(Optional.of(tarifa));
 
-        Vehiculo v1 = Vehiculo.builder()
+        Vehiculo vehLibre = Vehiculo.builder()
                 .id(1L)
                 .matricula("1234-FRT")
                 .marca("Seat")
@@ -102,7 +102,7 @@ class ReservaServiceTest {
                 .fechaHoraDevolucion(LocalDateTime.of(2023, 1, 5, 10, 0))
                 .build();
 
-        Vehiculo v2 = Vehiculo.builder()
+        Vehiculo vehReservado = Vehiculo.builder()
                 .id(2L)
                 .matricula("4321-FRT")
                 .marca("Seat")
@@ -111,7 +111,7 @@ class ReservaServiceTest {
                 .reservas(Arrays.asList(reserva))
                 .alquileres(Collections.EMPTY_LIST)
                 .build();
-        Mockito.when(vehiculoRepo.findByTipoVehiculo(tipoVehiculo)).thenReturn(Arrays.asList(v1, v2));
+        Mockito.when(vehiculoRepo.findByTipoVehiculo(tipoVehiculo)).thenReturn(Arrays.asList(vehLibre, vehReservado));
 
         // Act
         List<ResultadoBusqueda> lista = reservaService.buscarVehiculosDisponibles(1L, 1L, inicio, fin);
