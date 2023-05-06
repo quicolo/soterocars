@@ -9,6 +9,7 @@ import es.tuespiral.soterocars.tipovehiculo.TipoVehiculo;
 import es.tuespiral.soterocars.tipovehiculo.TipoVehiculoRepository;
 import es.tuespiral.soterocars.vehiculo.Vehiculo;
 import es.tuespiral.soterocars.vehiculo.VehiculoRepository;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -48,13 +49,10 @@ class ReservaServiceTest {
         assertThrows(ReservaException.class, ()  -> reservaService.buscarVehiculosDisponibles(1L, 1L, inicio, fin));
     }
 
+
     @Test
     void testBuscarVehiculosDisponiblesDebeDevolverSoloUnVehiculoDisponible() throws ReservaException {
-
-        // Arrange
-        LocalDateTime inicio = LocalDateTime.of(2023, 1, 2, 10, 0);
-        LocalDateTime fin = LocalDateTime.of(2023, 1, 3, 10, 0);
-
+        // Carga de datos de prueba
         Empresa emp = Empresa.builder()
                 .id(1L)
                 .denominacionSocial("SoteroCars")
@@ -112,6 +110,10 @@ class ReservaServiceTest {
                 .alquileres(Collections.EMPTY_LIST)
                 .build();
         Mockito.when(vehiculoRepo.findByTipoVehiculo(tipoVehiculo)).thenReturn(Arrays.asList(vehLibre, vehReservado));
+
+        // Arrange
+        LocalDateTime inicio = LocalDateTime.of(2023, 1, 2, 10, 0);
+        LocalDateTime fin = LocalDateTime.of(2023, 1, 3, 10, 0);
 
         // Act
         List<ResultadoBusqueda> lista = reservaService.buscarVehiculosDisponibles(1L, 1L, inicio, fin);
